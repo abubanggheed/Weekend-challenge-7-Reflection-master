@@ -17,6 +17,8 @@ const feedback = (store = {}, action) => {
             return { ...store, supported: action.payload };
         case 'COMMENTS':
             return { ...store, comments: action.payload };
+        case 'RESET':
+            return {};
         default:
             return store;
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import NewFeedbackButton from '../NewFeedbackButton/NewFeedbackButton';
 
 class ThankYou extends Component {
   componentDidMount(){
@@ -20,6 +21,7 @@ class ThankYou extends Component {
     return (
       <div>
           <h2>Thank You!</h2>
+          <NewFeedbackButton />
       </div>
     );
   }
