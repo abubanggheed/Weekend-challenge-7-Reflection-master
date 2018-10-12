@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class NextButton extends Component {
+class SubmitButton extends Component {
 
   handleClick = () => {
     this.props.dispatch(this.props.action);
-    this.props.history.push(this.props.page);
+    this.props.history.push('/5');
   }
 
   render() {
     return (
-      <button onClick={this.handleClick}>Next</button>
+      <button onClick={this.handleClick}>Submit</button>
     );
   }
 }
 
-export default withRouter(connect()(NextButton));
+export default withRouter(connect()(SubmitButton));
