@@ -3,6 +3,7 @@ import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import swal from 'sweetalert';
 
 class Admin extends Component {
 
@@ -24,54 +25,66 @@ class Admin extends Component {
   }
 
   handleDelete = id => {
-    axios({
-      method: 'DELETE',
-      url: '/feedback',
-      params: { id: id }
-    }).then(response => {
-      this.getLogs();
-    }).catch(error => {
-      console.log('ERROR:', error);
+    swal({
+      title: 'Delete this record?',
+      icon: 'warning',
+      buttons: ['Maybe not', 'Delete it'],
+    }).then( willDelete => {
+      if(willDelete) {
+        axios({
+          method: 'DELETE',
+          url: '/feedback',
+          params: { id: id }
+        }).then(response => {
+          this.getLogs();
+          swal('Record deleted.');
+        }).catch(error => {
+          console.log('ERROR:', error);
+        });
+      } else{
+        swal('Delete canceled');
+      }
     });
   }
 
-  componentDidMount() {
-    this.getLogs();
-  }
 
-  render() {
-    return (
-      <div>
-        <h2>Admin</h2>
-        <Paper>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Feeling</TableCell>
-                <TableCell>Comprehension</TableCell>
-                <TableCell>Support</TableCell>
-                <TableCell>Comments</TableCell>
-                <TableCell>Delete</TableCell>
+componentDidMount() {
+  this.getLogs();
+}
+
+render() {
+  return (
+    <div>
+      <h2>Admin</h2>
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Feeling</TableCell>
+              <TableCell>Comprehension</TableCell>
+              <TableCell>Support</TableCell>
+              <TableCell>Comments</TableCell>
+              <TableCell>Delete</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {this.state.logs.map(log => (
+              <TableRow key={log.id}>
+                <TableCell>{log.feeling}</TableCell>
+                <TableCell>{log.understanding}</TableCell>
+                <TableCell>{log.support}</TableCell>
+                <TableCell>{log.comments}</TableCell>
+                <TableCell><IconButton onClick={() => this.handleDelete(log.id)} aria-label="Delete">
+                  <DeleteIcon />
+                </IconButton></TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.state.logs.map(log => (
-                <TableRow key={log.id}>
-                  <TableCell>{log.feeling}</TableCell>
-                  <TableCell>{log.understanding}</TableCell>
-                  <TableCell>{log.support}</TableCell>
-                  <TableCell>{log.comments}</TableCell>
-                  <TableCell><IconButton onClick={() => this.handleDelete(log.id)} aria-label="Delete">
-                    <DeleteIcon />
-                  </IconButton></TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
-      </div>
-    );
-  }
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    </div>
+  );
+}
 }
 
 export default Admin;
