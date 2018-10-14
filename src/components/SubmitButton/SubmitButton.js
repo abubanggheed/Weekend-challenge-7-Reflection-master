@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class SubmitButton extends Component {
 
@@ -11,7 +12,7 @@ class SubmitButton extends Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>Submit</button>
+      <Button variant="raised" color="secondary" onClick={this.handleClick}>Submit</Button>
     );
   }
 }

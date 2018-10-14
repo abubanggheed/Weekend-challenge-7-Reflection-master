@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class NewFeedbackButton extends Component {
 
@@ -11,7 +12,7 @@ class NewFeedbackButton extends Component {
 
   render() {
     return (
-      <button onClick={this.handleClick}>Leave New Feedback</button>
+      <Button variant="outlined" onClick={this.handleClick}>Leave New Feedback</Button>
     );
   }
 }
