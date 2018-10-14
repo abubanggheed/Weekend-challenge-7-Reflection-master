@@ -34,4 +34,15 @@ router.delete('/', (req, res) => {
     });
 });
 
+router.put('/', (req, res) => {
+    pool.query(`UPDATE "feedback"
+    SET "flagged" = NOT "flagged"
+    WHERE "id" = $1;`, [req.query.id]).then( results => {
+        res.sendStatus(200);
+    }).catch( error => {
+        console.log('ERROR:', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
