@@ -4,7 +4,7 @@ import NextButton from '../NextButton/NextButton';
 
 class FormCard extends Component {
   state = {
-    feeling: ''
+    [this.props.category]: ''
   }
 
   handleChange = event => {
@@ -16,6 +16,8 @@ class FormCard extends Component {
   render() {
     return (
         <Card>
+            <h2>{this.props.page} of 4 pages</h2>
+            <p>{this.props.title}</p>
             <FormControl>
               <RadioGroup value={this.state[this.props.category]} onChange={this.handleChange} row>
                 <FormControlLabel value="1" control={<Radio />} label="1" />
