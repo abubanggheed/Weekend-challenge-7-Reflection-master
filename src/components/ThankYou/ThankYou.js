@@ -30,8 +30,4 @@ class ThankYou extends Component {
   }
 }
 
-const mapReduxToProps = state => ({
-  feedback: state
-});
-
-export default connect(mapReduxToProps)(ThankYou);
+export default connect(state => ({feedback: state}))(ThankYou);
