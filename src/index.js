@@ -7,20 +7,20 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feedback = (store = {}, action) => {
+const feedback = (state = {}, action) => {
     switch (action.type) {
         case 'FEELING':
-            return { ...store, feeling: action.payload };
+            return { ...state, feeling: action.payload };
         case 'UNDERSTANDING':
-            return { ...store, understanding: action.payload };
+            return { ...state, understanding: action.payload };
         case 'SUPPORTED':
-            return { ...store, supported: action.payload };
+            return { ...state, supported: action.payload };
         case 'COMMENTS':
-            return { ...store, comments: action.payload };
+            return { ...state, comments: action.payload };
         case 'RESET':
             return {};
         default:
-            return store;
+            return state;
     }
 }
 
