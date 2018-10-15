@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 class SubmitButton extends Component {
 
   handleClick = () => {
-    this.props.dispatch(this.props.action);
+    this.props.dispatch({type: 'SET_ANSWER', payload: this.props.payload});
     this.props.history.push('/5');
   }
 

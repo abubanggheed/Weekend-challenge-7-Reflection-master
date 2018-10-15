@@ -28,7 +28,7 @@ class Support extends Component {
                 <FormControlLabel value="5" control={<Radio />} label="5" />
               </RadioGroup>
             </FormControl>
-          <NextButton page='4' action={{type: 'SET_ANSWER', payload: this.state}}/>
+          <NextButton page='4' payload={this.state}/>
       </Card>
     );
   }

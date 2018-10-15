@@ -27,7 +27,7 @@ class Feeling extends Component {
                 <FormControlLabel value="5" control={<Radio />} label="5" />
               </RadioGroup>
             </FormControl>
-          <NextButton page='/2' action={{ type: 'SET_ANSWER', payload: this.state }} />
+          <NextButton page='/2' payload={this.state} />
         </Card>
     );
   }
