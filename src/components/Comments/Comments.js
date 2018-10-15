@@ -20,7 +20,7 @@ class Comments extends Component {
           <h2>4 of 4 pages</h2>
           <p>Any comments you want to leave?</p>
           <textarea type="text" value={this.state.comments} onChange={this.handleChange} />
-          <SubmitButton action={{type: 'COMMENTS', payload: this.state.comments}} />
+          <SubmitButton action={{type: 'SET_ANSWER', payload: this.state}} />
       </Card>
     );
   }

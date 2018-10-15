@@ -9,16 +9,10 @@ import logger from 'redux-logger';
 
 const feedback = (state = {}, action) => {
     switch (action.type) {
-        case 'FEELING':
-            return { ...state, feeling: action.payload };
-        case 'UNDERSTANDING':
-            return { ...state, understanding: action.payload };
-        case 'SUPPORTED':
-            return { ...state, supported: action.payload };
-        case 'COMMENTS':
-            return { ...state, comments: action.payload };
         case 'RESET':
             return {};
+        case 'SET_ANSWER':
+            return {...state, ...action.payload};
         default:
             return state;
     }
