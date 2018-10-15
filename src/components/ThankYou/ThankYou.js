@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import NewFeedbackButton from '../NewFeedbackButton/NewFeedbackButton';
 
 class ThankYou extends Component {
-  componentDidMount(){
+  componentDidMount() {
     axios({
       method: 'POST',
       url: '/feedback',
       data: this.props.feedback
-    }).then( response => {
+    }).then(response => {
 
-    }).catch( error => {
+    }).catch(error => {
       console.log('ERROR:', error);
       alert('server down! try again later');
     });
@@ -20,8 +20,11 @@ class ThankYou extends Component {
   render() {
     return (
       <div>
-          <h2>Thank You!</h2>
-          <NewFeedbackButton />
+        <h2>Thank You!</h2>
+        <NewFeedbackButton />
+        <pre>
+          <img src="images/goat_small.jpg" alt="" />
+        </pre>
       </div>
     );
   }
