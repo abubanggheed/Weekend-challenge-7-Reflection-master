@@ -19,7 +19,7 @@ class Feeling extends Component {
           <h2>1 of 4 pages</h2>
           <p>How are you feeling today?</p>
             <FormControl>
-              <RadioGroup value={this.state.feeling} onChange={this.handleChange}>
+              <RadioGroup value={this.state.feeling} onChange={this.handleChange} row>
                 <FormControlLabel value="1" control={<Radio />} label="1" />
                 <FormControlLabel value="2" control={<Radio />} label="2" />
                 <FormControlLabel value="3" control={<Radio />} label="3" />
