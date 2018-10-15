@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import { ArrowForward } from '@material-ui/icons';
 
 class NextButton extends Component {
 
@@ -12,7 +13,7 @@ class NextButton extends Component {
 
   render() {
     return (
-      <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
+      <Button color="primary" variant="contained" onClick={this.handleClick}>Next <ArrowForward /></Button>
     );
   }
 }
