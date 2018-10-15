@@ -13,6 +13,15 @@ class FormCard extends Component {
     });
   }
 
+  renderButton = () => {
+    if(this.state[this.props.category]) {
+      return (
+        <NextButton page={this.props.nextPage} payload={this.state} />
+      );
+    }
+    return null;
+  }
+
   render() {
     return (
         <Card>
@@ -27,7 +36,7 @@ class FormCard extends Component {
                 <FormControlLabel value="5" control={<Radio />} label="5" />
               </RadioGroup>
             </FormControl>
-          <NextButton page={this.props.nextPage} payload={this.state} />
+          {this.renderButton()}
         </Card>
     );
   }
