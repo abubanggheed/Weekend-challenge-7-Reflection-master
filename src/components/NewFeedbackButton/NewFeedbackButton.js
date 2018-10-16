@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
 class NewFeedbackButton extends Component {
-
+// similar to other buttons, but runs an action with type 'RESET'
   handleClick = () => {
     this.props.dispatch({type: 'RESET'});
     this.props.history.push('/');

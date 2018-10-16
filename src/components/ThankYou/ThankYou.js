@@ -5,10 +5,12 @@ import NewFeedbackButton from '../NewFeedbackButton/NewFeedbackButton';
 
 class ThankYou extends Component {
   componentDidMount() {
+    // send redux state to server on load
+    // this component is the only one that needs to access the redux store
     axios({
       method: 'POST',
       url: '/feedback',
-      data: this.props.feedback
+      data: this.props.feedback /* redux state -- see export */
     }).then(response => {
 
     }).catch(error => {

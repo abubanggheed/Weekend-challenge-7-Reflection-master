@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import SubmitButton from '../SubmitButton/SubmitButton';
 
 class Comments extends Component {
-
+// similar to form card but uses a text area and submit button
   state = {
     comments: ''
   }

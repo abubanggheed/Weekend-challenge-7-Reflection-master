@@ -14,9 +14,11 @@ class FormCard extends Component {
   }
 
   renderButton = () => {
+    //renders next button when state is set truthy; on first call of handleChange
     if(this.state[this.props.category]) {
       return (
-        <NextButton page={this.props.nextPage} payload={this.state} />
+        <NextButton page={this.props.nextPage} 
+        payload={this.state/* determines action the next button sends on click */} />
       );
     }
     return null;

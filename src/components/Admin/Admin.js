@@ -26,11 +26,13 @@ class Admin extends Component {
   }
 
   handleDelete = id => {
+    //use sweetalert swal for verification dialogue
     swal({
       title: 'Delete this record?',
       icon: 'warning',
       buttons: ['Maybe not', 'Delete it'],
     }).then( willDelete => {
+      //yes delete case
       if(willDelete) {
         axios({
           method: 'DELETE',
@@ -43,6 +45,7 @@ class Admin extends Component {
           console.log('ERROR:', error);
         });
       } else{
+        //no delete case
         swal('Delete canceled');
       }
     });
@@ -90,6 +93,7 @@ render() {
             </TableRow>
           </TableHead>
           <TableBody>
+            {/*map for array of feedback responses from server*/}
             {this.state.logs.map(log => (
               <TableRow key={log.id}>
                 <TableCell>{log.feeling}</TableCell>
@@ -103,7 +107,7 @@ render() {
                   <DeleteIcon />
                 </IconButton></TableCell>
               </TableRow>
-            ))}
+            ))/* end of map */}
           </TableBody>
         </Table>
       </Paper>

@@ -12,11 +12,18 @@ const feedback = (state = {}, action) => {
         case 'RESET':
             return {};
         case 'SET_ANSWER':
-            return {...state, ...action.payload};
+            return {...state, ...action.payload /* an object with one property */ };
         default:
             return state;
     }
 }
+// complete feedback state:
+//state = {
+//     feeling: 3,
+//     understanding: 3,
+//      support: 3,
+//      comments: 'some string',
+// }
 
 const store = createStore(
     feedback,
